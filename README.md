@@ -5,4 +5,12 @@
 Переходим в каталог /etc/apt/
 cd /etc/apt
 Создаем файл
-'touch apt.conf'
+touch apt.conf
+После открываем его серез редактор nano в комадной строке с правами суперпользователя
+sudo nano apt.conf
+Вписываем туда
+Acquire::https::Proxy "https://адрес-прокси:порт-прокси/";
+Acquire::http::Proxy "http://адрес-прокси:порт-прокси/";
+Acquire::ftp::Proxy "ftp://адрес-прокси:порт-прокси/";
+Acquire::::Proxy "true";
+В моем случае будет 
