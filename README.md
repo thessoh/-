@@ -14,3 +14,32 @@ Acquire::http::Proxy "http://адрес-прокси:порт-прокси/";
 Acquire::ftp::Proxy "ftp://адрес-прокси:порт-прокси/";
 Acquire::::Proxy "true";
 В моем случае будет 
+Acquire::https::Proxy "https://10.0.18.52:3128/";
+Acquire::http::Proxy "http://10.0.18.52:3128/";
+Acquire::ftp::Proxy "ftp://10.0.18.52:3128/";
+Acquire::::Proxy "true";
+После интернет должен заработать.
+Проверяем командой 
+sudo apt update
+Если не работает необходимо перезагрузить ПК
+
+Для работы интернета в браузерах установленных на пк необходимо
+Перейти в католог 
+cd /etc/
+создать файл environment
+touch environment
+Отредактировать его
+sudo nano environment
+Вписываем в него
+https_proxy=https://адрес-прокси:порт-прокси/
+http_proxy=http://адрес-прокси:порт-прокси/
+ftp_proxy=ftp://адрес-прокси:порт-прокси/
+no_proxy="127.0.0.1, localhost, 192.168.0.0/24, domain.local"
+В моем случае
+https_proxy=https://10.0.18.52:3128/
+http_proxy=http://10.0.18.52:3128/
+ftp_proxy=ftp://10.0.18.52:3128/
+no_proxy="127.0.0.1, localhost, 192.168.0.0/24, domain.local"
+Проверяем раборту браузера.
+Если не работеает перезагружаем пк.
+Сертификат можно настроить по инструкции Росстелекома
